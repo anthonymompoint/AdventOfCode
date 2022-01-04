@@ -78,7 +78,6 @@ public class DayThree extends AbstractDay{
                 else
                     zero++;
             }
-            System.out.println(zero + " " + one);
             char commonChar = '0';
             if(one >= zero)
                 commonChar = '1';
@@ -90,6 +89,7 @@ public class DayThree extends AbstractDay{
             }
             place++;
         }
+        System.out.println(oxygen.get(0) + " " + CO2.get(0));
         br.close();
         return convertBinary(flip(oxygen.get(0))) * convertBinary(flip(CO2.get(0)));
     }

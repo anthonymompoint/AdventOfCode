@@ -30,6 +30,7 @@ public class DayThree extends AbstractDay{
             gamma.append(oneOccurrences[i] > zeroOccurrences[i] ? 1 : 0);
         }
         int gammaNum = convertBinary(gamma.toString());
+        br.close();
         return gammaNum * (gammaNum ^ (int)Math.pow(2, oneOccurrences.length)-1);
     }
 
@@ -89,6 +90,7 @@ public class DayThree extends AbstractDay{
             }
             place++;
         }
+        br.close();
         return convertBinary(flip(oxygen.get(0))) * convertBinary(flip(CO2.get(0)));
     }
 

@@ -89,7 +89,6 @@ public class DayThree extends AbstractDay{
             }
             place++;
         }
-        System.out.println(oxygen.get(0) + " " + CO2.get(0));
         br.close();
         return convertBinary(flip(oxygen.get(0))) * convertBinary(flip(CO2.get(0)));
     }

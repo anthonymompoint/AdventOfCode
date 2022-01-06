@@ -24,12 +24,7 @@ public class DaySix extends AbstractDay{
             counters.add(8, counters.remove(0));
             counters.set(6, counters.get(6) + newFish);
         }
-
-        int counter = 0;
-        for(int num : counters){
-            counter += num;
-        }
-        return counter;
+        return counters.stream().mapToLong(a -> a).sum();
     }
 
     @Override
@@ -48,10 +43,7 @@ public class DaySix extends AbstractDay{
             counters.set(6, counters.get(6) + newFish);
         }
 
-        long counter = 0;
-        for(Long num : counters){
-            counter += num;
-        }
-        return counter;
+
+        return counters.stream().mapToLong(a -> a).sum();
     }
 }

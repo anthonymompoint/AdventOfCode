@@ -8,7 +8,7 @@ public class DayTwo extends AbstractDay {
     }
 
     @Override
-    public int getOutput1() throws IOException {
+    public Object getOutput1() throws IOException {
         int depth = 0;
         int forward = 0;
         BufferedReader br = new BufferedReader(new FileReader("inputs/input2-1.txt"));
@@ -28,7 +28,7 @@ public class DayTwo extends AbstractDay {
     }
 
     @Override
-    public int getOutput2() throws IOException{
+    public Object getOutput2() throws IOException{
         int depth = 0;
         int forward = 0;
         int aim = 0;

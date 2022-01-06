@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class DayThree extends AbstractDay{
     public DayThree(){
@@ -10,7 +9,7 @@ public class DayThree extends AbstractDay{
     }
 
     @Override
-    public int getOutput1() throws IOException {
+    public Object getOutput1() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("inputs/input3.txt"));
         String text = br.readLine();
         int[] zeroOccurrences = new int[text.length()];
@@ -35,7 +34,7 @@ public class DayThree extends AbstractDay{
     }
 
     @Override
-    public int getOutput2() throws IOException {
+    public Object getOutput2() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("inputs/input3.txt"));
         ArrayList<String> oxygen = new ArrayList<>();
         ArrayList<String> CO2 = new ArrayList<>();

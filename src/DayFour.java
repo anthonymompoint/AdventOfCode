@@ -10,7 +10,7 @@ public class DayFour extends AbstractDay{
     }
 
     @Override
-    public int getOutput1() throws IOException {
+    public Object getOutput1() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("inputs/input4.txt"));
         int[] numbers = BingoBoard.getNumbers(br.readLine());
         ArrayList<BingoBoard> boards = new ArrayList<>();
@@ -42,7 +42,7 @@ public class DayFour extends AbstractDay{
     }
 
     @Override
-    public int getOutput2() throws IOException {
+    public Object getOutput2() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("inputs/input4.txt"));
         int[] numbers = BingoBoard.getNumbers(br.readLine());
         ArrayList<BingoBoard> boards = new ArrayList<>();

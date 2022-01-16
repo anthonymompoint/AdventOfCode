@@ -10,6 +10,7 @@ public class AdventOfCode {
             System.out.println((new DayEight()).getOutputs());
             System.out.println((new DayNine()).getOutputs());
             System.out.println((new DayTen()).getOutputs());
+            System.out.println((new DayEleven()).getOutputs());
         }
         catch(Exception e){
             e.printStackTrace();

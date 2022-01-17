@@ -5,24 +5,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DayFour extends AbstractDay{
-    public DayFour() {
+    private final ArrayList<BingoBoard> input;
+    private final int[] inputNums;
+    public DayFour() throws IOException {
         super(4);
-    }
-
-    @Override
-    public Object getOutput1() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("inputs/input4.txt"));
-        int[] numbers = BingoBoard.getNumbers(br.readLine());
-        ArrayList<BingoBoard> boards = new ArrayList<>();
+        inputNums = BingoBoard.getNumbers(br.readLine());
+        input = new ArrayList<>();
         while(br.readLine() != null){
             int[][] board = new int[5][5];
             for(int i = 0; i < 5; i++){
                 String str = br.readLine();
                 board[i] = BingoBoard.getRow(str.trim());
             }
-            boards.add(new BingoBoard(board));
+            input.add(new BingoBoard(board));
         }
+    }
 
+    @Override
+    public Object getOutput1() throws IOException {
+        ArrayList<BingoBoard> boards = (ArrayList<BingoBoard>) input.clone();
+        int[] numbers = inputNums.clone();
         for(int num : numbers){
             for(BingoBoard board : boards){
                 if(board.markItem(num)){
@@ -43,17 +46,8 @@ public class DayFour extends AbstractDay{
 
     @Override
     public Object getOutput2() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input4.txt"));
-        int[] numbers = BingoBoard.getNumbers(br.readLine());
-        ArrayList<BingoBoard> boards = new ArrayList<>();
-        while(br.readLine() != null){
-            int[][] board = new int[5][5];
-            for(int i = 0; i < 5; i++){
-                String str = br.readLine();
-                board[i] = BingoBoard.getRow(str.trim());
-            }
-            boards.add(new BingoBoard(board));
-        }
+        ArrayList<BingoBoard> boards = (ArrayList<BingoBoard>) input.clone();
+        int[] numbers = inputNums.clone();
         boolean[] winners = new boolean[boards.size()];
         BingoBoard lastWinner = null;
         int lastNumber = 0;

@@ -4,21 +4,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DayNine extends AbstractDay{
-    public DayNine() {
+    private final char[][] input;
+    public DayNine() throws IOException {
         super(9);
+        BufferedReader br = new BufferedReader(new FileReader("inputs/input9.txt"));
+        String line = br.readLine();
+        ArrayList<String> lines = new ArrayList<>();
+        while(line != null){
+            lines.add(line);
+            line = br.readLine();
+        }
+
+        input = new char[lines.size()][lines.get(0).length()];
+        for(int i = 0; i < lines.size();i++){
+            input[i] = lines.get(i).toCharArray();
+        }
     }
 
     @Override
     public Object getOutput1() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input9.txt"));
-        String line = br.readLine();
-        char[][] field = new char[line.length()][line.length()];
-        int z = 0;
-        while(line != null && z < field.length){
-            field[z] = line.toCharArray();
-            z++;
-            line = br.readLine();
-        }
+        char[][] field = input.clone();
         int[][] spots = new int[field.length][field[0].length];
         for(int i = 0; i < field.length; i++){
             for(int x = 0; x < field[i].length;x++){
@@ -56,18 +61,7 @@ public class DayNine extends AbstractDay{
 
     @Override
     public Object getOutput2() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input9.txt"));
-        String line = br.readLine();
-        ArrayList<String> lines = new ArrayList<>();
-        while(line != null){
-            lines.add(line);
-            line = br.readLine();
-        }
-
-        char[][] field = new char[lines.size()][lines.get(0).length()];
-        for(int i = 0; i < lines.size();i++){
-            field[i] = lines.get(i).toCharArray();
-        }
+        char[][] field = input.clone();
         int[][] spots = new int[field.length][field[0].length];
         for(int i = 0; i < field.length; i++){
             for(int x = 0; x < field[i].length;x++){

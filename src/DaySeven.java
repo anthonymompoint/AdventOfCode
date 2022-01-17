@@ -4,14 +4,16 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class DaySeven extends AbstractDay{
-    public DaySeven() {
+    private final int[] input;
+    public DaySeven() throws IOException {
         super(7);
+        BufferedReader br = new BufferedReader(new FileReader("inputs/input7.txt"));
+        input = Arrays.stream(br.readLine().split(",")).mapToInt(Integer::parseInt).toArray();
     }
 
     @Override
     public Object getOutput1() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input7.txt"));
-        int[] values = Arrays.stream(br.readLine().split(",")).mapToInt(Integer::parseInt).toArray();
+        int[] values = input.clone();
         int[] distance = new int[values.length];
 
         for(int i = 0; i < values.length; i++){
@@ -24,9 +26,7 @@ public class DaySeven extends AbstractDay{
 
     @Override
     public Object getOutput2() throws IOException {
-
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input7.txt"));
-        int[] values = Arrays.stream(br.readLine().split(",")).mapToInt(Integer::parseInt).toArray();
+        int[] values = input.clone();
         int[] distance = new int[values.length];
 
         for(int i = 0; i < values.length; i++){

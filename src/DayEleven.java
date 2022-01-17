@@ -1,25 +1,27 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class DayEleven extends AbstractDay{
-    public DayEleven() {
+    private final int[][] input;
+    public DayEleven() throws IOException {
         super(11);
+        BufferedReader br = new BufferedReader(new FileReader("inputs/input11.txt"));
+        String line = br.readLine();
+        input = new int[line.length()][line.length()];
+        for(int i = 0; i < input.length; i++){
+            char[] cArray = line.toCharArray();
+            for(int x = 0; x < input.length; x++){
+                input[i][x] = Integer.parseInt(cArray[x] + "");
+            }
+            line = br.readLine();
+        }
     }
 
     @Override
     public Object getOutput1() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input11.txt"));
-        String line = br.readLine();
-        int[][] field = new int[line.length()][line.length()];
-        for(int i = 0; i < field.length; i++){
-            char[] cArray = line.toCharArray();
-            for(int x = 0; x < field.length; x++){
-                field[i][x] = Integer.parseInt(cArray[x] + "");
-            }
-            line = br.readLine();
-        }
-
+        int[][] field = input.clone();
         int count = 0;
         for(int i = 0; i < 100; i++){
 
@@ -42,17 +44,7 @@ public class DayEleven extends AbstractDay{
 
     @Override
     public Object getOutput2() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("inputs/input11.txt"));
-        String line = br.readLine();
-        int[][] field = new int[line.length()][line.length()];
-        for(int i = 0; i < field.length; i++){
-            char[] cArray = line.toCharArray();
-            for(int x = 0; x < field.length; x++){
-                field[i][x] = Integer.parseInt(cArray[x] + "");
-            }
-            line = br.readLine();
-        }
-
+        int[][] field = input.clone();
         long i = 0;
         while(true){
             int count = 0;

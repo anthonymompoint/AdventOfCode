@@ -53,7 +53,8 @@ public class DayEleven extends AbstractDay{
             line = br.readLine();
         }
 
-        for(int i = 0; i < 1000; i++){
+        long i = 0;
+        while(true){
             int count = 0;
             boolean[][] popped = new boolean[field.length][field.length];
             for(int x = 0; x < field.length; x++){
@@ -73,9 +74,9 @@ public class DayEleven extends AbstractDay{
             if(count == field.length * field.length){
                 return i +1;
             }
+            i++;
         }
 
-        return 0;
     }
 
     public int increment(int[][] field, boolean[][] popped, int x, int y){

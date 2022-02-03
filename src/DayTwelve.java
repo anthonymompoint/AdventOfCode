@@ -3,12 +3,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 public class DayTwelve extends AbstractDay{
-    private int out1;
-    private int out2;
+    private final int out1;
+    private final int out2;
     public DayTwelve() throws IOException {
         super(12);
         Map<String, Integer> nameToInt = new HashMap<>();

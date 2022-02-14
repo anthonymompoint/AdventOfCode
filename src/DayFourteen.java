@@ -63,6 +63,16 @@ public class DayFourteen extends AbstractDay{
 
     @Override
     public Object getOutput2() throws IOException {
+        ArrayList<String> pairs = new ArrayList<>();
+        for (int i = 0; i < input.length() - 1; i++) {
+            String pair = input.substring(i, i + 2);
+            pairs.add(pair);
+        }
+        long[] alph = new long['Z'-'A'];
+        for(String pair : pairs){
+            // This is gonna suck, essentially use a recursive function that expands each one
+            // 40 steps and pases back up the long array.
+        }
         return null;
     }
 }
